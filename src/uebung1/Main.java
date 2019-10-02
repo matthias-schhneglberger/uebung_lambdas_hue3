@@ -21,7 +21,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        Printable printerSimple = (list) -> list.forEach(w -> {
+            System.out.println(w.toString(" || "));
+        });
         
         ReadCSV csvReader = new ReadCSV();
         
@@ -29,9 +31,7 @@ public class Main {
         
         weaponsList = csvReader.getWeapons();
         
-//        for(Weapon e : weaponsList){
-//            System.out.println(e.getName());
-//        }
+        printerSimple.print(sortByCombatTypeDamageTypeName(weaponsList));
         
         
         
