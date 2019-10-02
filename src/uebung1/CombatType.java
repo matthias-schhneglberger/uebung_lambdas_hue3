@@ -9,6 +9,8 @@ package uebung1;
  *
  * @author matth
  */
-public class readCSV {
-    
+public enum CombatType { 
+    NONE,
+    RANGED,
+    MELEE,
 }

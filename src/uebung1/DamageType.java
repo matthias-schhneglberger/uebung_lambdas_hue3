@@ -9,6 +9,10 @@ package uebung1;
  *
  * @author matth
  */
-public class damageType {
-    
+public enum DamageType {
+    SLASHING,
+    MISSILE,
+    BLUNT,
+    NONE,
+    PIERCING
 }
