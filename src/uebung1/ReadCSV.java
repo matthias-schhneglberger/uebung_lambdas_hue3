@@ -23,11 +23,11 @@ public class ReadCSV {
     private static List<Weapon> weapons = new ArrayList<Weapon>();
     
     public static void read(){
-        try {
+        try (
             
             FileReader reader = new FileReader(path);
-            BufferedReader br = new BufferedReader(reader);
-            
+            BufferedReader br = new BufferedReader(reader);)
+            {
             br.readLine();
             
             String line = br.readLine();

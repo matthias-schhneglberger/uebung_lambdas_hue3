@@ -28,6 +28,9 @@ public class Main {
         
         weaponsList = csvReader.getWeapons();
         
+        for(Weapon e : weaponsList){
+            System.out.println(e.getName());
+        }
         
         
         
@@ -40,8 +43,14 @@ public class Main {
             (Weapon w1, Weapon w2) -> w1.getDamage() - w2.getDamage();
         
         listToSort.sort(sortByDamageIncrease);
-        
+
         return listToSort;
+    }
+    
+    public static List<Weapon> sortByCombatTypeDamageTypeName(List<Weapon> listToSort){
+        Comparator<Weapon> sortByCombatTypeDamageTypeName = 
+            (Weapon w1, Weapon w2) -> w1.getDamage() - w2.getDamage();
+        return null;
     }
     
 }

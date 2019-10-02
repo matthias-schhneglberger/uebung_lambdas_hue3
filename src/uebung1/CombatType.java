@@ -12,5 +12,5 @@ package uebung1;
 public enum CombatType { 
     NONE,
     RANGED,
-    MELEE,
+    MELEE
 }
