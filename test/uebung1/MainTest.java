@@ -55,7 +55,7 @@ public class MainTest {
         System.out.println("Testing sort Weapons by damage increase");
         
         Main.main(null);
-        List<Weapon> weapons = Main.weaponsList;
+        List<Weapon> weapons = Main.sortByDamageIncrease(Main.weaponsList);
         boolean richtig = true;
         for(int i = weapons.size()-1; i > 0; i--){
             if(!  (weapons.get(i).getDamage() >= weapons.get(i-1).getDamage())  ){

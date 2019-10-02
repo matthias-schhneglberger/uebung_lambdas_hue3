@@ -28,12 +28,20 @@ public class Main {
         
         weaponsList = csvReader.getWeapons();
         
+        
+        
+        
+        
+        
+    }
+    
+    public static List<Weapon> sortByDamageIncrease(List<Weapon> listToSort){
         Comparator<Weapon> sortByDamageIncrease = 
             (Weapon w1, Weapon w2) -> w1.getDamage() - w2.getDamage();
         
+        listToSort.sort(sortByDamageIncrease);
         
-        weaponsList.sort(sortByDamageIncrease);
-        
+        return listToSort;
     }
     
 }
