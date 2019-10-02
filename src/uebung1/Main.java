@@ -5,6 +5,7 @@
  */
 package uebung1;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
@@ -28,9 +29,9 @@ public class Main {
         
         weaponsList = csvReader.getWeapons();
         
-        for(Weapon e : weaponsList){
-            System.out.println(e.getName());
-        }
+//        for(Weapon e : weaponsList){
+//            System.out.println(e.getName());
+//        }
         
         
         
@@ -48,9 +49,13 @@ public class Main {
     }
     
     public static List<Weapon> sortByCombatTypeDamageTypeName(List<Weapon> listToSort){
-        Comparator<Weapon> sortByCombatTypeDamageTypeName = 
-            (Weapon w1, Weapon w2) -> w1.getDamage() - w2.getDamage();
-        return null;
+        Comparator<Weapon> sortByCombatType = (Weapon w1, Weapon w2) -> w1.getCombatType().toString().compareTo(w2.getCombatType().toString());
+        Comparator<Weapon> sortByDamageType = (Weapon w1, Weapon w2) -> w1.getDamageType().toString().compareTo(w2.getDamageType().toString());
+        Comparator<Weapon> sortByName = (Weapon w1, Weapon w2) -> w1.getName().compareTo(w2.getName());
+
+        Collections.sort(listToSort, sortByCombatType.thenComparing(sortByDamageType).thenComparing(sortByName));
+        
+        return listToSort;
     }
     
 }

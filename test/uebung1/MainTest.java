@@ -5,6 +5,7 @@
  */
 package uebung1;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -65,6 +66,31 @@ public class MainTest {
         
         assertTrue("nicht Richtig sortiert", richtig);
         
+    }
+    
+    @Test
+    public void testSortByCombatTypeDamageTypeName(){
+        System.out.println("Testing sort by CombatType, DamageType, Name");
+        
+        Main.main(null);
+        
+        List<Weapon> weapons = Main.sortByCombatTypeDamageTypeName(Main.weaponsList);
+        List<String> lines = new ArrayList<String>();
+        
+        for(Weapon e : weapons){
+            lines.add(e.getCombatType().toString() + "" + e.getDamageType().toString() + "" + e.getName());
+        }
+        
+        boolean richtig = true;
+        
+        for(int i = 0; i < lines.size()-1; i++){
+            if(!(lines.get(i).compareTo(lines.get(i+1)) <= 0)){
+                richtig = false;
+            }
+        }
+        
+        
+        assertTrue("nicht Richtig sortiert", richtig);
     }
     
 }
