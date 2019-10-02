@@ -8,6 +8,9 @@ package uebung1;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +20,7 @@ import java.util.logging.Logger;
  */
 public class ReadCSV {
     public static String path = "weapons.csv";
+    private static List<Weapon> weapons = new ArrayList<Weapon>();
     
     public static void read(){
         try {
@@ -24,11 +28,41 @@ public class ReadCSV {
             FileReader reader = new FileReader(path);
             BufferedReader br = new BufferedReader(reader);
             
+            br.readLine();
+            
+            String line = br.readLine();
+            while (line != null){
+                
+                Weapon currentWeapon = new Weapon();
+                
+                String[] parts = line.split(";");
+                
+                currentWeapon.setName(parts[0]);
+                currentWeapon.setCombatType(CombatType.valueOf(parts[1]));
+                currentWeapon.setDamageType(DamageType.valueOf(parts[2]));
+                currentWeapon.setDamage(Integer.valueOf(parts[3]));
+                currentWeapon.setSpeed(Integer.valueOf(parts[4]));
+                currentWeapon.setStrength(Integer.valueOf(parts[5]));
+                currentWeapon.setValue(Integer.valueOf(parts[6]));
+                
+                weapons.add(currentWeapon);
+                
+                line = br.readLine();
+            }
             
             
         }
         catch (FileNotFoundException ex) {
             Logger.getLogger(ReadCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
+        catch (IOException ex) {
+            Logger.getLogger(ReadCSV.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static List<Weapon> getWeapons(){
+        
+        return weapons;
+        
     }
 }

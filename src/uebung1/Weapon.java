@@ -12,7 +12,8 @@ package uebung1;
 public class Weapon {
     String name;
     CombatType combatType;
-    DamageType	damage;
+    DamageType	damageType;
+    int damage;
     int speed;
     int strength;
     int value;
@@ -33,11 +34,19 @@ public class Weapon {
         this.combatType = combatType;
     }
 
-    public DamageType getDamage() {
+    public DamageType getDamageType() {
+        return damageType;
+    }
+
+    public void setDamageType(DamageType damageType) {
+        this.damageType = damageType;
+    }
+
+    public int getDamage() {
         return damage;
     }
 
-    public void setDamage(DamageType damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 
@@ -64,6 +73,8 @@ public class Weapon {
     public void setValue(int value) {
         this.value = value;
     }
+
+    
     
     
 
