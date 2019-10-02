@@ -9,10 +9,13 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -22,7 +25,7 @@ public class ReadCSV {
     public static String path = "weapons.csv";
     private static List<Weapon> weapons = new ArrayList<Weapon>();
     
-    public static void read(){
+    public static void readWithoutLambda(){
         try (
             
             FileReader reader = new FileReader(path);
@@ -60,6 +63,25 @@ public class ReadCSV {
         catch (IOException ex) {
             Logger.getLogger(ReadCSV.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void readWithLambda(){
+        String fileName = "weapons.csv";
+        List<String> list = new ArrayList<>();
+
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(fileName))) {
+
+                
+                list = br.lines().skip(1).collect(Collectors.toList());
+
+        } catch (IOException e) {
+                e.printStackTrace();
+        }
+        
+        for(String s : list){
+            weapons.add(new Weapon(s));
+        }
+
     }
     
     public static List<Weapon> getWeapons(){

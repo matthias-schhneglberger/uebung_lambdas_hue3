@@ -45,12 +45,14 @@ public class Main {
                 System.out.println("");
                 System.out.print("|");
                 
+                
                 int zusaetzlicheLeer = tabellenbreite - w.getName().length();
                 System.out.print(w.getName());
                 for(int i = 0; i <= zusaetzlicheLeer; i++){
                     System.out.print(" ");
                 }
                 System.out.print("|");
+                
                 
                 zusaetzlicheLeer = tabellenbreite - w.getCombatType().toString().length();
                 System.out.print(w.getCombatType().toString());
@@ -105,7 +107,7 @@ public class Main {
         
         ReadCSV csvReader = new ReadCSV();
         
-        csvReader.read();
+        csvReader.readWithLambda();
         
         weaponsList = csvReader.getWeapons();
         

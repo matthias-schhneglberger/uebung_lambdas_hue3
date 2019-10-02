@@ -10,6 +10,18 @@ package uebung1;
  * @author matth
  */
 public class Weapon {
+    public Weapon(){}
+    public Weapon(String csvString){
+        String[] parts = csvString.split(";");
+        
+        setName(parts[0]);
+        setCombatType(CombatType.valueOf(parts[1]));
+        setDamageType(DamageType.valueOf(parts[2]));
+        setDamage(Integer.valueOf(parts[3]));
+        setSpeed(Integer.valueOf(parts[4]));
+        setStrength(Integer.valueOf(parts[5]));
+        setValue(Integer.valueOf(parts[6]));
+    }
     String name;
     CombatType combatType;
     DamageType	damageType;
