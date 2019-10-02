@@ -25,13 +25,91 @@ public class Main {
             System.out.println(w.toString(" || "));
         });
         
+        
+        
+        Printable printerHard = (list) -> 
+            list
+            .stream()
+            
+            .forEach(w -> {
+                int tabellenbreite = 17;
+                
+                for(int i = 0; i <= 6; i++){
+                    
+                    System.out.print("+");
+                    for(int o = 0; o <= tabellenbreite; o++){
+                        System.out.print("-");
+                    }
+                }
+                System.out.print("+");
+                System.out.println("");
+                System.out.print("|");
+                
+                int zusaetzlicheLeer = tabellenbreite - w.getName().length();
+                System.out.print(w.getName());
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                zusaetzlicheLeer = tabellenbreite - w.getCombatType().toString().length();
+                System.out.print(w.getCombatType().toString());
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                zusaetzlicheLeer = tabellenbreite - w.getDamageType().toString().length();
+                System.out.print(w.getDamageType().toString());
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                zusaetzlicheLeer = tabellenbreite - String.valueOf(w.getDamage()).length();
+                System.out.print(String.valueOf(w.getDamage()));
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                zusaetzlicheLeer = tabellenbreite - String.valueOf(w.getSpeed()).length();
+                System.out.print(String.valueOf(w.getSpeed()));
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                
+                zusaetzlicheLeer = tabellenbreite - String.valueOf(w.getStrength()).length();
+                System.out.print(String.valueOf(w.getStrength()));
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                zusaetzlicheLeer = tabellenbreite - String.valueOf(w.getValue()).length();
+                System.out.print(String.valueOf(w.getValue()));
+                for(int i = 0; i <= zusaetzlicheLeer; i++){
+                    System.out.print(" ");
+                }
+                System.out.print("|");
+                
+                
+                
+                
+                System.out.println("");
+        });
+        
+        
+        
         ReadCSV csvReader = new ReadCSV();
         
         csvReader.read();
         
         weaponsList = csvReader.getWeapons();
         
-        printerSimple.print(sortByCombatTypeDamageTypeName(weaponsList));
+        printerHard.print(sortByCombatTypeDamageTypeName(weaponsList));
         
         
         

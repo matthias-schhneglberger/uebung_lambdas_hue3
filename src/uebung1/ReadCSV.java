@@ -28,6 +28,8 @@ public class ReadCSV {
             FileReader reader = new FileReader(path);
             BufferedReader br = new BufferedReader(reader);)
             {
+                
+                
             br.readLine();
             
             String line = br.readLine();

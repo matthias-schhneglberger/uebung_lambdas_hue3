@@ -22,6 +22,12 @@ public class Weapon {
     public String toString(String seperator) {
         return name + seperator + combatType + seperator + damageType + seperator + damage + seperator + speed + seperator + strength + seperator + value;
     }
+    
+    public String toString(String begin, String seperator, String end) {
+        return begin + name + seperator + combatType + seperator + damageType + seperator + damage + seperator + speed + seperator + strength + seperator + value + end;
+    }
+    
+
 
 
     
