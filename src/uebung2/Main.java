@@ -24,10 +24,25 @@ public class Main {
         System.out.println("Durchschnitt: " + average(randomNumbers));
         
         String[] randomString = getRandomStrings(10, 10);
+        List<String> stringList = upperCase(randomString);
         
-        for(String i : randomString){
+        for(Object i : stringList.toArray()){
             System.out.println(i);
         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     private static int[] getRandomNums(int nums){
