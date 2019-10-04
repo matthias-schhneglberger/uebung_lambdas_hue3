@@ -5,7 +5,9 @@
  */
 package uebung2;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  *
@@ -65,6 +67,15 @@ public class Main {
     
     public static double average(int[] numbers){
         return Arrays.stream(numbers).average().getAsDouble();
+    }
+    
+    public static List<String> upperCase(String[] strings){
+        
+        List<String> stringList = new ArrayList<>();
+        
+        Arrays.stream(strings).map(String::toUpperCase).forEach(m -> stringList.add(m));
+        
+        return stringList;
     }
     
 }
