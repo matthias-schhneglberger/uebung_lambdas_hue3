@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uebung2;
+package uebung2_fehlerhaft_6HStreams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -33,10 +34,15 @@ public class Main {
         
         
         
+        ReadCSV csvReader = new ReadCSV();
         
+        csvReader.readWithLambda();
         
+        List <Weapon> weapons = csvReader.getWeapons();
         
+        System.out.println("geringste Damage: " + weapons.stream().map(n -> n.getDamage()).min(Comparator.comparing(Integer::valueOf)).get());
         
+        System.out.println("höchste Strength: " + weapons.stream().map(n -> n.getStrength()).max(Comparator.comparing(Integer::valueOf)).get());
         
         
         
