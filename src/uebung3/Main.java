@@ -15,18 +15,18 @@ import java.util.List;
 
 
 
-@FunctionalInterface
-interface Mapper<S, T> {
-    T map(S from);
-    
-    List<T> mapAll(List<S> from);
-}
+//@FunctionalInterface
+//interface Mapper<S, T> {
+//    T map(S from);
+//    
+//    //List<T> mapAll(List<S> from);
+//}
 
 
 
 
 
-public class Main implements Mapper{
+public class Main{
     
     /**
      * @param args the command line arguments
@@ -42,14 +42,14 @@ public class Main implements Mapper{
         System.out.println(uppercasesNames);
     }
 
-    @Override
-    public Object map(Object from) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List mapAll(List from) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    @Override
+//    public Object map(Object from) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    @Override
+//    public List mapAll(List from) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
 }
